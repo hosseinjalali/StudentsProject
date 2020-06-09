@@ -12,6 +12,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using AutoMapper;
 using StudentBLL.Services;
+using StudentDAL.Model;
+using Microsoft.EntityFrameworkCore;
 
 namespace StudentsProject
 {
@@ -30,6 +32,8 @@ namespace StudentsProject
             services.AddAutoMapper(typeof(Startup));
             services.AddControllers();
             services.AddSingleton<IStudent, Student>();
+            services.AddSingleton<IAddToDatabase, IAddToDatabase>();
+            services.AddDbContext<StudentDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("StudentDataBase")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

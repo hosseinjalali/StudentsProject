@@ -9,6 +9,6 @@ namespace StudentBLL.Services
 {
     public interface IStudent
     {
-        IEnumerable<StudentViewModel> AddStudent(string StudentList);
+        void AddStudent(string StudentList);
     }
 }

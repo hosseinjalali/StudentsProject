@@ -8,7 +8,7 @@ using StudentDAL.Model;
 
 namespace StudentDAL.Migrations
 {
-    [DbContext(typeof(StudentDbContext))]
+    [DbContext(typeof(Model.StudentDbContext))]
     [Migration("20200609142246_InitialCreate")]
     partial class InitialCreate
     {

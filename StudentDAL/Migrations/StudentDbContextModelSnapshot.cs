@@ -7,7 +7,7 @@ using StudentDAL.Model;
 
 namespace StudentDAL.Migrations
 {
-    [DbContext(typeof(StudentDbContext))]
+    [DbContext(typeof(Model.StudentDbContext))]
     partial class StudentDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

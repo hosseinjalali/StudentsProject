@@ -14,16 +14,16 @@ namespace StudentsProject.Controllers
     [ApiController]
     public class StudentController : ControllerBase
     {
-        private readonly Student student;
+        private readonly StudentServices studentservices;
 
-        public StudentController(Student student)
+        public StudentController(StudentServices studentServices)
         {
-            this.student = student;
+            this.studentservices = studentServices;
         }
         [HttpPost]
-        public IActionResult Post([FromBody] string NewStudents)
+        public IActionResult Post([FromBody] string newStudentsVM)
         {
-            student.AddStudent(NewStudents.ToString());
+            studentservices.AddStudent(newStudentsVM.ToString());
             return Ok();
         }
 

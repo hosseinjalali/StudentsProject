@@ -14,6 +14,7 @@ using AutoMapper;
 using StudentBLL.Services;
 using StudentDAL.Model;
 using Microsoft.EntityFrameworkCore;
+using StudentDAL.Repository;
 
 namespace StudentsProject
 {
@@ -29,10 +30,17 @@ namespace StudentsProject
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddAutoMapper(typeof(Startup));
+            var mappingConfig = new MapperConfiguration(mc=>
+            {
+                mc.AddProfile(new AutoFillModels());
+                
+            
+            });
+            IMapper mapper = mappingConfig.CreateMapper();
+            services.AddSingleton(mapper);
             services.AddControllers();
-            services.AddSingleton<IStudent, Student>();
-            services.AddSingleton<IAddToDatabase, IAddToDatabase>();
+            services.AddTransient<IStudentServices, StudentServices>();
+            services.AddTransient<IRepository<StudentModel>, Repository<StudentModel>>();
             services.AddDbContext<StudentDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("StudentDataBase")));
         }
 

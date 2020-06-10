@@ -7,7 +7,7 @@ using System.Text;
 
 namespace StudentBLL.Services
 {
-    class AutoFillModels:Profile
+   public class AutoFillModels:Profile
     {
         public AutoFillModels()
         {

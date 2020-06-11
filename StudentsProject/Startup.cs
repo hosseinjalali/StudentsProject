@@ -39,7 +39,7 @@ namespace StudentsProject
             IMapper mapper = mappingConfig.CreateMapper();
             services.AddSingleton(mapper);
             services.AddControllers();
-            services.AddTransient<IStudentServices, StudentServices>();
+            services.AddTransient<IStudentService, StudentService>();
             services.AddTransient<IRepository<StudentModel>, Repository<StudentModel>>();
             services.AddDbContext<StudentDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("StudentDataBase")));
         }

@@ -7,9 +7,9 @@ using System.Text;
 
 namespace StudentBLL.Services
 {
-    public interface IStudentServices
+    public interface IStudentService
     {
         void AddStudent(string StudentList);
-        StudentViewModel GetStudent(int id);
+        List<StudentViewModel> GetStudent(string student);
     }
 }

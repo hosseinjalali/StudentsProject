@@ -15,6 +15,8 @@ using StudentBLL.Services;
 using StudentDAL.Model;
 using Microsoft.EntityFrameworkCore;
 using StudentDAL.Repository;
+using StudentBLL.Extentions;
+
 
 namespace StudentsProject
 {
@@ -52,6 +54,7 @@ namespace StudentsProject
                 app.UseDeveloperExceptionPage();
             }
 
+            app.ConfigCustomExceptionMiddleware();
             app.UseHttpsRedirection();
 
             app.UseRouting();
@@ -62,6 +65,7 @@ namespace StudentsProject
             {
                 endpoints.MapControllers();
             });
+            
         }
     }
 }
